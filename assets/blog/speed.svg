@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="سرعت‌سنج با عقربه در ناحیه سریع، کرنومتر و آذرخش؛ نماد سرعت بارگذاری سایت">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F1330"/>
+      <stop offset="1" stop-color="#151B40"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0" stop-color="#3F52E8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#3F52E8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#232A55" stroke-width="1" stroke-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+
+  <!-- gauge base -->
+  <path d="M390 430 A210 210 0 0 1 810 430" fill="none" stroke="#232A55" stroke-width="30" stroke-linecap="round"/>
+  <path d="M390 430 A210 210 0 0 1 479.6 258" fill="none" stroke="#2A3163" stroke-width="30" stroke-linecap="round"/>
+  <path d="M479.6 258 A210 210 0 0 1 688.7 239.7" fill="none" stroke="#FFB547" stroke-width="30" stroke-linecap="round"/>
+  <path d="M688.7 239.7 A210 210 0 0 1 810 430" fill="none" stroke="#3F52E8" stroke-width="30" stroke-linecap="round"/>
+
+  <!-- ticks -->
+  <g stroke="#3A4180" stroke-width="5" stroke-linecap="round">
+    <line x1="430" y1="430" x2="408" y2="430"/>
+    <line x1="479.8" y1="309.8" x2="464.2" y2="294.2"/>
+    <line x1="600" y1="260" x2="600" y2="238"/>
+    <line x1="720.2" y1="309.8" x2="735.8" y2="294.2"/>
+    <line x1="770" y1="430" x2="792" y2="430"/>
+  </g>
+
+  <!-- needle -->
+  <line x1="600" y1="430" x2="743" y2="347.5" stroke="#FFB547" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="600" cy="430" r="26" fill="#FFB547"/>
+  <circle cx="600" cy="430" r="11" fill="#0F1330"/>
+
+  <!-- stopwatch -->
+  <g>
+    <rect x="928" y="108" width="26" height="16" rx="5" fill="#3F52E8"/>
+    <circle cx="941" cy="196" r="62" fill="#171C42" stroke="#3F52E8" stroke-width="8"/>
+    <line x1="941" y1="196" x2="941" y2="158" stroke="#C9CFFF" stroke-width="7" stroke-linecap="round"/>
+    <line x1="941" y1="196" x2="972" y2="212" stroke="#FFB547" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="941" cy="196" r="6" fill="#C9CFFF"/>
+  </g>
+
+  <!-- lightning -->
+  <path d="M212 128 L152 258 L204 258 L172 348 L262 210 L208 210 Z" fill="#FFB547" opacity="0.9"/>
+
+  <circle cx="300" cy="480" r="6" fill="#3F52E8" opacity="0.8"/>
+  <circle cx="1010" cy="520" r="5" fill="#C9CFFF" opacity="0.5"/>
+</svg>

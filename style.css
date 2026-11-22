@@ -1392,6 +1392,30 @@ summary:focus-visible{
     font-size: 13px;
     font-weight: 700;
 }
+.card-thumb{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: var(--surface);
+}
+.post-figure{ margin: 0 0 30px; }
+.post-figure img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+}
+.post-figure figcaption{
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: center;
+}
 .post{ max-width: 760px; }
 .post article h2{
     margin: 34px 0 10px;

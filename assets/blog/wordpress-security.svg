@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="سپر و قفل روی یک پنجره مرورگر، همراه با کلید و نشان تیک؛ نماد امنیت سایت">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F1330"/>
+      <stop offset="1" stop-color="#151B40"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#3F52E8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#3F52E8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#232A55" stroke-width="1" stroke-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+
+  <!-- browser window -->
+  <rect x="320" y="140" width="560" height="400" rx="22" fill="#171C42" stroke="#2A3163" stroke-width="2"/>
+  <path d="M320 162a22 22 0 0 1 22-22h516a22 22 0 0 1 22 22v32H320z" fill="#1D2350"/>
+  <circle cx="350" cy="168" r="6" fill="#FFB547"/>
+  <circle cx="370" cy="168" r="6" fill="#3F52E8"/>
+  <circle cx="390" cy="168" r="6" fill="#2A3163"/>
+  <rect x="352" y="214" width="230" height="14" rx="7" fill="#2A3163"/>
+  <rect x="352" y="242" width="170" height="12" rx="6" fill="#232A55"/>
+  <rect x="352" y="268" width="200" height="12" rx="6" fill="#232A55"/>
+  <rect x="352" y="304" width="496" height="88" rx="14" fill="#232A55"/>
+  <rect x="352" y="412" width="140" height="32" rx="16" fill="#2A3163"/>
+
+  <!-- shield -->
+  <path d="M600 168 L744 220 V330 C744 412 676 462 600 490 C524 462 456 412 456 330 V220 Z" fill="#3F52E8" stroke="#C9CFFF" stroke-width="4"/>
+  <path d="M600 200 L712 240 V330 C712 392 662 432 600 455 C538 432 488 392 488 330 V240 Z" fill="#3143C9"/>
+
+  <!-- padlock -->
+  <path d="M578 352 v-18 a22 22 0 0 1 44 0 v18" fill="none" stroke="#FFB547" stroke-width="11" stroke-linecap="round"/>
+  <rect x="560" y="352" width="80" height="62" rx="12" fill="#FFB547"/>
+  <circle cx="600" cy="378" r="7" fill="#0F1330"/>
+  <rect x="596" y="380" width="8" height="16" rx="4" fill="#0F1330"/>
+
+  <!-- key -->
+  <g transform="translate(178,346) rotate(-18)">
+    <circle r="32" fill="none" stroke="#FFB547" stroke-width="12"/>
+    <rect x="32" y="-6" width="72" height="12" rx="6" fill="#FFB547"/>
+    <rect x="82" y="6" width="12" height="20" rx="4" fill="#FFB547"/>
+    <rect x="58" y="6" width="12" height="15" rx="4" fill="#FFB547"/>
+  </g>
+
+  <!-- check badge -->
+  <circle cx="1000" cy="300" r="52" fill="#171C42" stroke="#3F52E8" stroke-width="5"/>
+  <polyline points="976,300 994,320 1026,282" fill="none" stroke="#FFB547" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="290" cy="170" r="6" fill="#C9CFFF" opacity="0.6"/>
+  <circle cx="1020" cy="470" r="6" fill="#3F52E8" opacity="0.8"/>
+</svg>
