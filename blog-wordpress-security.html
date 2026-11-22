@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چطور سایت وردپرسی‌ات رو امن کنی؟ | وبلاگ طراحی سایت</title>
+    <meta name="description" content="مهم‌ترین کارها برای امن‌نگه‌داشتن یه سایت وردپرسی، بر اساس راهنمای رسمی Hardening WordPress.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0F1330">
+    <meta property="og:title" content="چطور سایت وردپرسی‌ات رو امن کنی؟">
+    <meta property="og:description" content="مهم‌ترین کارها برای امن‌نگه‌داشتن یه سایت وردپرسی، بر اساس راهنمای رسمی Hardening WordPress.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fa_IR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="site-header"></div>
+    <main>
+        <section class="page-hero"><div class="container"><h1>چطور سایت وردپرسی‌ات رو امن کنی؟</h1><p>بیشتر هک‌ها با رمز ضعیف و افزونه قدیمی شروع می‌شن، نه با ترفند پیچیده.</p></div></section>
+
+        <section class="section">
+            <div class="container post">
+                <article>
+                    <p>سایت وردپرسی چون رایجه، هدف زیاد قرار می‌گیره. خبر خوب اینه که اکثر خطرها با چند عادت ساده کم می‌شن. این‌ها خلاصه توصیه‌های راهنمای رسمی وردپرسن:</p>
+
+                    <h2>آپدیت همیشگی</h2>
+                    <p>هسته وردپرس و افزونه‌ها رو آپدیت نگه دار و آپدیت خودکار رو فعال کن. نسخه‌های قدیمی دیگه وصله امنیتی نمی‌گیرن. وردپرس رو هم فقط از wordpress.org دانلود کن.</p>
+
+                    <h2>رمز قوی و تایید دومرحله‌ای</h2>
+                    <p>رمز طولانی و غیرقابل‌حدس بذار و تایید دومرحله‌ای رو برای ورود فعال کن. نام کاربری «admin» رو هم استفاده نکن.</p>
+
+                    <h2>مدیریت افزونه‌ها</h2>
+                    <p>افزونه‌های بلااستفاده رو حذف کن و فقط از منابع معتبر نصب کن.</p>
+
+                    <h2>انتقال فایل امن</h2>
+                    <p>برای انتقال فایل به هاست از SFTP استفاده کن تا اطلاعات ورودت شنود نشه.</p>
+
+                    <h2>دسترسی فایل‌ها و wp-admin</h2>
+                    <ul>
+                        <li>سطح دسترسی فایل‌ها رو محدود کن؛ سرور فقط جاهایی که لازمه (مثل uploads) حق نوشتن داشته باشه.</li>
+                        <li>از wp-admin با HTTPS و در صورت امکان رمز اضافه روی سرور محافظت کن.</li>
+                        <li>ویرایش فایل از داخل داشبورد رو با <code>DISALLOW_FILE_EDIT</code> غیرفعال کن.</li>
+                    </ul>
+
+                    <h2>بک‌آپ منظم</h2>
+                    <p>از فایل‌ها و دیتابیس چند نسخه تاریخ‌دار بگیر، جای امن نگه دار و یه بار هم بازیابی‌شون رو تست کن.</p>
+
+                    <div class="tip">
+                        <strong>یه نکته</strong>
+                        <p>امنیت کامل وجود نداره، ولی با همین عادت‌ها سایتت از اکثر حمله‌های رایج دور می‌مونه.</p>
+                    </div>
+                </article>
+                <aside class="sources">
+                    <h2>منابع</h2>
+                    <ul>
+                        <li><a href="https://developer.wordpress.org/advanced-administration/security/hardening/" target="_blank" rel="noopener">Hardening WordPress (developer.wordpress.org)</a></li>
+                    </ul>
+                </aside>
+                <p class="more"><a href="blog.html">برگشت به وبلاگ</a></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <div>
+                        <h2>پروژه‌ای تو ذهنت داری؟</h2>
+                        <p>بهم بگو چیه تا باهم بهترین راه ساختنش رو پیدا کنیم.</p>
+                    </div>
+                    <a href="contact.html" class="services-cta">بیا حرف بزنیم</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+</body>
+</html>

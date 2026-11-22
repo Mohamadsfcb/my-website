@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چرا سرعت سایت مهمه؟ | وبلاگ طراحی سایت</title>
+    <meta name="description" content="سرعت سایت چطور روی تجربه کاربر و گوگل اثر می‌ذاره، با عددهای رسمی Core Web Vitals و چند راه ساده برای سریع‌تر شدنش.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0F1330">
+    <meta property="og:title" content="چرا سرعت سایت مهمه؟">
+    <meta property="og:description" content="سرعت سایت چطور روی تجربه کاربر و گوگل اثر می‌ذاره، با عددهای رسمی Core Web Vitals و چند راه ساده برای سریع‌تر شدنش.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fa_IR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="site-header"></div>
+    <main>
+        <section class="page-hero"><div class="container"><h1>چرا سرعت سایت مهمه؟</h1><p>سایتی که دیر باز بشه، قبل از اینکه دیده بشه بسته می‌شه.</p></div></section>
+
+        <section class="section">
+            <div class="container post">
+                <article>
+                    <p>سرعت فقط یه عدد فنی نیست؛ حس کاربر رو می‌سازه. گوگل برای اندازه‌گیری تجربه صفحه سه معیار به اسم Core Web Vitals داره.</p>
+
+                    <h2>سه معیار اصلی و عددهای «خوب»</h2>
+                    <ul>
+                        <li><strong>LCP:</strong> مدت زمانی که بزرگ‌ترین بخش صفحه (معمولاً عکس یا تیتر اصلی) نمایش داده می‌شه. حد خوب: ۲.۵ ثانیه یا کمتر.</li>
+                        <li><strong>INP:</strong> سرعت واکنش صفحه به کلیک و لمس کاربر. حد خوب: ۲۰۰ میلی‌ثانیه یا کمتر.</li>
+                        <li><strong>CLS:</strong> میزان جابه‌جا شدن ناگهانی عناصر هنگام لود. حد خوب: ۰.۱ یا کمتر.</li>
+                    </ul>
+                    <p>این عددها برای ۷۵ درصد بازدیدهای صفحه در نظر گرفته می‌شن.</p>
+
+                    <h2>چطور سایتم رو سریع‌تر کنم؟</h2>
+                    <p>طبق راهنمای web.dev، این کارها بیشترین اثر رو دارن:</p>
+                    <ul>
+                        <li>عکس‌ها رو فشرده کن و از فرمت‌های جدید مثل WebP یا AVIF استفاده کن.</li>
+                        <li>عکس اصلی بالای صفحه رو lazy-load نکن و بهش <code>fetchpriority="high"</code> بده.</li>
+                        <li>ریدایرکت‌های اضافی رو حذف کن.</li>
+                        <li>فایل CSS رو کوچیک نگه دار و اسکریپت‌هایی که فوری لازم نیستن رو با <code>defer</code> لود کن.</li>
+                        <li>از کش و CDN استفاده کن.</li>
+                    </ul>
+
+                    <div class="tip">
+                        <strong>یه نکته</strong>
+                        <p>با ابزار PageSpeed Insights گوگل می‌تونی سرعت سایتت رو رایگان بسنجی و ببینی کدوم قسمتش کند‌ه.</p>
+                    </div>
+                </article>
+                <aside class="sources">
+                    <h2>منابع</h2>
+                    <ul>
+                        <li><a href="https://web.dev/articles/defining-core-web-vitals-thresholds" target="_blank" rel="noopener">آستانه‌های Core Web Vitals (web.dev)</a></li>
+                        <li><a href="https://web.dev/articles/optimize-lcp" target="_blank" rel="noopener">بهینه‌سازی LCP (web.dev)</a></li>
+                    </ul>
+                </aside>
+                <p class="more"><a href="blog.html">برگشت به وبلاگ</a></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <div>
+                        <h2>پروژه‌ای تو ذهنت داری؟</h2>
+                        <p>بهم بگو چیه تا باهم بهترین راه ساختنش رو پیدا کنیم.</p>
+                    </div>
+                    <a href="contact.html" class="services-cta">بیا حرف بزنیم</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+</body>
+</html>
