@@ -1,6 +1,6 @@
 (function () {
     // ایمیل خودت را اینجا بنویس تا فرم تماس به آن ارسال شود
-    var CONTACT_EMAIL = 'your@email.com';
+    var CONTACT_EMAIL = 'sm1793648@gmail.com';
 
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.documentElement.classList.add('js');
@@ -21,7 +21,7 @@
     '<a href="services.html#company" class="mega-menu-item">' + icon('<path d="M4 20V6l8-3 8 3v14M9 20v-5h6v5M8 9h2M14 9h2M8 12h2M14 12h2"/>') + '<span><strong>طراحی سایت شرکتی</strong><small>معرفی کسب و کار شما</small></span></a>' +
     '<a href="services.html#shop" class="mega-menu-item">' + icon('<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h10L20 8H6.5"/>') + '<span><strong>طراحی سایت فروشگاهی</strong><small>راه‌اندازی فروشگاه اینترنتی</small></span></a>' +
     '<a href="services.html#personal" class="mega-menu-item">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>') + '<span><strong>طراحی سایت شخصی</strong><small>ساخت وب‌سایت معرفی و رزومه</small></span></a>' +
-    '<a href="support.html" class="mega-menu-item">' + icon('<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>') + '<span><strong>پشتیبانی سایت</strong><small>بهبود سرعت سایت</small></span></a>' +
+    '<a href="services.html#support" class="mega-menu-item">' + icon('<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>') + '<span><strong>پشتیبانی سایت</strong><small>بهبود سرعت سایت</small></span></a>' +
     '</div><div class="mega-menu-footer"><a href="services.html">مشاهده تمام خدمات</a></div></div></details></li>' +
     '<li><a href="about.html">درباره من</a></li>' +
     '<li><a href="portfolio.html">نمونه کارها</a></li>' +
@@ -38,7 +38,7 @@
     '<ul class="footer-links">' +
     '<li><a href="index.html">خانه</a></li><li><a href="about.html">درباره من</a></li>' +
     '<li><a href="services.html">خدمات</a></li><li><a href="portfolio.html">نمونه کارها</a></li>' +
-    '<li><a href="support.html">پشتیبانی</a></li><li><a href="ticket.html">ارسال تیکت</a></li>' +
+    '<li><a href="services.html#support">پشتیبانی</a></li><li><a href="ticket.html">ارسال تیکت</a></li>' +
     '<li><a href="experience.html">تجربیات</a></li><li><a href="blog.html">وبلاگ</a></li>' +
     '<li><a href="contact.html">تماس</a></li></ul>' +
     '</div><div class="container"><p class="copyright">© محمد حسین صیدی، طراح سایت</p></div></footer>';

@@ -2,13 +2,13 @@
 :root {
   --ink: #0F1330;
   --ink-2: #1A2050;
-  --brand: #5468FF;
-  --brand-dark: #3F52E8;
+  --brand: #3F52E8;
+  --brand-dark: #3143C9;
   --amber: #FFB547;
   --surface: #F6F7FF;
   --line: #E4E7F7;
   --text: #2B2F4A;
-  --muted: #6B7094;
+  --muted: #656A8E;
   --shadow: rgba(15, 19, 48, 0.10);
   --transition: all 0.3s ease;
 }
