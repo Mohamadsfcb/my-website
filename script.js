@@ -148,7 +148,7 @@
     /* ---------- ظاهر شدن بخش‌ها هنگام اسکرول ---------- */
     var items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && !reduce) {
-        // فقط وقتی مشاهدهگر آماده است مخفی کردن را aktive میکنیم
+        // فقط وقتی مشاهدهگر آماده است مخفی کردن را aktive می کنیم
         document.documentElement.classList.add('reveal-ready');
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
@@ -183,7 +183,7 @@
         trackLead(context || 'form');
         var full = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' + text;
         var url = TELEGRAM_URL + '?text=' + encodeURIComponent(full);
-        /* لینک موقت با target=_blank: فقط تب جدید باز میشود، تب سایت ثابت میماند */
+        /* لینک موقت با target=_blank: فقط تب جدید باز میشه، تب سایت ثابت میماند */
         var link = document.createElement('a');
         link.href = url;
         link.target = '_blank';
@@ -222,7 +222,7 @@
         });
     }
 
-    /* ---------- تیکت پشتیبانی: پیشنویس محلی + ارسال واقعی از طریق تلگرام ---------- */
+    /* ---------- تیکت پشتیبانی: پیش نویس محلی + ارسال واقعی از طریق تلگرام ---------- */
     var tform = document.getElementById('ticket-form');
     var tlist = document.getElementById('ticket-list');
     if (tform && tlist) {
@@ -247,7 +247,7 @@
             var all = loadTickets();
             tlist.textContent = '';
             if (!all.length) {
-                tlist.appendChild(makeEl('li', 'ticket-empty', 'هنوز پیشنویسی نساختی.'));
+                tlist.appendChild(makeEl('li', 'ticket-empty', 'هنوز پیش نویسی نساختی.'));
                 return;
             }
             all.forEach(function (t, idx) {
@@ -274,7 +274,7 @@
             e.preventDefault();
             var f = new FormData(tform);
             var code = 'P-' + Date.now().toString(36).toUpperCase().slice(-6);
-            var body = 'کد پیشنویس: ' + code + '\nنام: ' + f.get('name') +
+            var body = 'کد پیش نویس: ' + code + '\nنام: ' + f.get('name') +
                 '\nراه تماس: ' + f.get('contact') + '\nآدرس سایت: ' + f.get('site') +
                 '\nاولویت: ' + f.get('priority') + '\n\n' + f.get('message');
             var subject = 'درخواست پشتیبانی ' + code + ': ' + f.get('subject');
@@ -292,7 +292,7 @@
 
             openTelegram(subject + '\n\n' + body, 'ticket-form');
             showNote('ticket-note',
-                'پیشنویس ساخته شد (کد ' + code + '). این کد فقط تو این مرورگر ذخیره شده؛ پیام مستقیم در چت تلگرام محمد حسین باز شد، حتماً ارسالش کن تا برسم. اگر باز نشد،',
+                'پیش نویس ساخته شد (کد ' + code + '). این کد فقط تو این مرورگر ذخیره شده؛ پیام مستقیم در چت تلگرام محمد حسین باز شد، حتماً ارسالش کن تا برسم. اگر باز نشد،',
                 TELEGRAM_URL);
         });
     }

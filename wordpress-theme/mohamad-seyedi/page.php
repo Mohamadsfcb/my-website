@@ -8,7 +8,7 @@
     <section class="section"><div class="container entry-content"><?php the_content(); ?></div></section>
     <?php endwhile; ?>
     <section class="section alt"><div class="container">
-        <div class="cta-band reveal"><div><h2>آمادهای شروع کنیم؟</h2><p>بهم بگو دقیقاً چه سایتی میخوای.</p></div>
+        <div class="cta-band reveal"><div><h2>آماده ای شروع کنیم؟</h2><p>بهم بگو دقیقاً چه سایتی میخوای.</p></div>
         <a href="<?php echo esc_url( MHS_TELEGRAM ); ?>" data-telegram="page-bottom" class="services-cta">پیام بده</a></div>
     </div></section>
 </main>

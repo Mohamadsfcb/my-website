@@ -6,7 +6,7 @@
             <div class="hero-content">
                 <h1 class="inbound">سلام، محمد حسین صیدی هستم.
                     <span class="inbound-sub">طراح سایتهای <span class="rotator" data-words="شخصی|شرکتی|فروشگاهی">شخصی</span></span></h1>
-                <p class="hero-text">طراح سایتم. ۳ ساله دارم با وردپرس، المنتور، HTML و CSS کار میکنم. از یه سایت ساده و رزومهای بگیر تا سایت شرکتی و فروشگاهی، همهشو برات میسازم.</p>
+                <p class="hero-text">طراح سایتم. ۳ ساله دارم با وردپرس، المنتور، HTML و CSS کار می کنم. از یه سایت ساده و رزومهای بگیر تا سایت شرکتی و فروشگاهی، همهشو برات میسازم.</p>
                 <div class="hero-actions">
                     <a href="<?php echo esc_url( MHS_TELEGRAM ); ?>" data-telegram="hero" class="services-cta">مشاوره رایگان بگیر</a>
                     <a href="<?php echo esc_url( mhs_page_url( 'services' ) ); ?>" class="ghost-cta">خدمات رو ببین</a>
@@ -34,8 +34,8 @@
     <section class="section alt"><div class="container">
         <h2 class="section-title">چرا من؟</h2>
         <div class="card-grid grid-3">
-            <div class="card reveal"><strong>۳ سال تجربه</strong><p>تجربه ساخت سایت با وردپرس، المنتور و کدنویسی.</p></div>
-            <div class="card reveal"><strong>طرح قبل از اجرا</strong><p>اول طرح رو میبینی و تأیید میکنی، بعد ساخت شروع میشود.</p></div>
+            <div class="card reveal"><strong>۳ سال تجربه</strong><p>تجربه ساخت سایت با وردپرس، المنتور و کد نویسی.</p></div>
+            <div class="card reveal"><strong>طرح قبل از اجرا</strong><p>اول طرح رو میبینی و تأیید می کنی، بعد ساخت شروع میشه.</p></div>
             <div class="card reveal"><strong>پشتیبانی بعد از تحویل</strong><p>اگر مشکلی پیش آمد یا تغییری خواستی، کنارت هستم.</p></div>
         </div>
     </div></section>
@@ -51,7 +51,7 @@
 
     <section class="section alt"><div class="container">
         <div class="cta-band reveal">
-            <div><h2>پروژهای تو ذهنت داری؟</h2><p>بهم بگو چیه تا باهم بهترین راه ساختنش رو پیدا کنیم.</p></div>
+            <div><h2>پروژهای تو ذهنت داری؟</h2><p>بهم بگو چیه، خودمون میشینیم بهترین راهش رو پیدا می کنیم.</p></div>
             <a href="<?php echo esc_url( MHS_TELEGRAM ); ?>" data-telegram="front-bottom" class="services-cta">پیام بده</a>
         </div>
     </div></section>
