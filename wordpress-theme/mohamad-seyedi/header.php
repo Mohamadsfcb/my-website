@@ -4,8 +4,6 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0F1330">
-    <!-- Google Search Console: replace REPLACE_WITH_GSC_TOKEN with your verification token -->
-    <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN">
     <link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/fonts/Vazirmatn-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <?php wp_head(); ?>

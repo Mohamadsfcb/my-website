@@ -2,19 +2,8 @@
     'use strict';
     var TELEGRAM = (window.MHS && window.MHS.telegram) || 'https://t.me/mohamadhossineseyedi';
     var USER = (window.MHS && window.MHS.user) || 'mohamadhossineseyedi';
-    var GA_ID = 'G-XXXXXXXXXX'; // TODO: replace with real GA4 ID
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ window.dataLayer.push(arguments); }
-    if (GA_ID !== 'G-XXXXXXXXXX') {
-        var s = document.createElement('script');
-        s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
-        document.head.appendChild(s);
-        gtag('js', new Date()); gtag('config', GA_ID, { anonymize_ip: true });
-    }
 
     function trackLead(context) {
-        try { gtag('event', 'generate_lead', { method: 'telegram', source: context || 'site', page: location.pathname }); } catch (e) {}
         try {
             var all = JSON.parse(localStorage.getItem('lead_clicks') || '{}');
             all[context || 'site'] = (all[context || 'site'] || 0) + 1;
@@ -23,8 +12,11 @@
     }
 
     function hrefFor(context, extra) {
+        var ref = '';
+        try { if (document.referrer) { ref = new URL(document.referrer).hostname; } } catch (e) {}
         var msg = 'گیرنده: محمد حسین صیدی (@' + USER + ')\n\n' + 'از صفحه: ' + location.pathname +
-            (extra ? '\n' + extra : '') + '\n\nلطفاً کوتاه بنویسید: چه سایتی میخواهید و هدف پروژه چیست؟';
+            '\nمنبع: ' + (ref || 'مستقیم / گوگل') + (extra ? '\n' + extra : '') +
+            '\n\nلطفاً کوتاه بنویسید: چه سایتی میخواهید و هدف پروژه چیست؟';
         return TELEGRAM + '?text=' + encodeURIComponent(msg);
     }
 
