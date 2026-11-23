@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 # وقتی دامنه نهایی مشخص شد، آدرس سایتمپ را اینجا اضافه کن:
-# Sitemap: https://example.com/sitemap.xml
+
+Sitemap: https://mohamadsfcb.github.io/my-website/sitemap.xml

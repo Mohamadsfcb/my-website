@@ -1,3 +1,19 @@
+/* Local font - no Google Fonts dependency */
+@font-face{
+    font-family: "Vazirmatn";
+    src: url("assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face{
+    font-family: "Vazirmatn";
+    src: url("assets/fonts/Vazirmatn-Bold.woff2") format("woff2");
+    font-weight: 700 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ===== متغیرها ===== */
 :root {
   --ink: #0F1330;
@@ -15,18 +31,26 @@
 
 /* فونت وزیرمتن از گوگل‌فونت در head بارگذاری می‌شود */
 html{
+    min-height: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
 }
 
 body{
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: "Vazirmatn", Tahoma, sans-serif;
     font-size: 16px;
     line-height: 1.9;
     color: var(--text);
     background: #ffffff;
 }
+
+/* فوتر همیشه ته صفحه میماند، حتی وقتی محتوا کوتاه است */
+body > main{ flex: 1 0 auto; }
+body > #site-footer{ flex-shrink: 0; }
 
 .container{
     width: min(1180px, 92%);
@@ -935,13 +959,13 @@ summary:focus-visible{
     to{ transform: translateX(-50%); }
 }
 
-/* ظاهر شدن هنگام اسکرول */
-.js .reveal{
+/* ظاهر شدن هنگام اسکرول — محتوا پیشفرض دیده میشود، فقط وقتی JS کاملاً آماده است پنهان میشود */
+html.reveal-ready .reveal{
     opacity: 0;
     transform: translateY(26px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.js .reveal.in{
+html.reveal-ready .reveal.in{
     opacity: 1;
     transform: none;
 }
@@ -1184,6 +1208,16 @@ summary:focus-visible{
     box-shadow: 0 0 0 3px rgba(84, 104, 255, 0.2);
 }
 .form .services-cta{ border: none; font: inherit; font-size: 14px; cursor: pointer; justify-self: start; }
+.form-note{
+    margin: 0;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #EEF1FF;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.8;
+}
+.form-note[hidden]{ display: none; }
 
 /* فوتر */
 .site-footer{
@@ -1275,11 +1309,32 @@ summary:focus-visible{
     .hero-visual{ padding: 20px 8px 40px; }
 }
 
+/* صفحههای باریکتر از ۴۸۰ پیکسل (موبایل) */
+@media (max-width: 480px){
+    .header-container{ gap: 12px; }
+    .logo{ font-size: 17px; }
+    .header-cta{ font-size: 11px; padding: 8px 12px; }
+    .nav-list{ gap: 8px 14px; }
+    .nav-list a,
+    .nav-list summary{ font-size: 13px; padding: 6px 0; }
+    .hero-actions,
+    .not-found .hero-actions{ flex-wrap: wrap; }
+    .card{ padding: 20px; }
+    .steps li{ padding: 20px 16px; }
+    .marquee-track span{ padding: 12px 20px; }
+    .cta-band{ flex-direction: column; align-items: flex-start; padding: 26px 20px; gap: 16px; }
+    .site-footer{ padding: 34px 0 20px; text-align: right; }
+    .footer-grid{ gap: 20px; padding-bottom: 22px; }
+    .footer-links{ gap: 6px 18px; }
+    .form{ padding: 22px; }
+    .page-hero h1{ font-size: 24px; }
+}
+
 @media (prefers-reduced-motion: reduce){
     .blob, .browser, .chip, .cursor, .toast, .marquee-track, .nf-cursor,
     .wf-nav, .wf-line, .wf-btn, .wf-image, .wf-image b, .rotator::after{ animation: none !important; }
     .toast{ opacity: 1; }
-    .js .reveal{ opacity: 1; transform: none; }
+    html.reveal-ready .reveal{ opacity: 1; transform: none; }
 }
 
 .cursor{ bottom: auto; }

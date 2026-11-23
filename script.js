@@ -1,6 +1,55 @@
 (function () {
     // ایمیل خودت را اینجا بنویس تا فرم تماس به آن ارسال شود
-    var CONTACT_EMAIL = 'sm1793648@gmail.com';
+    var TELEGRAM_USER = 'mohamadhossineseyedi';
+    var TELEGRAM_URL = 'https://t.me/mohamadhossineseyedi';
+
+    var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: replace with real GA4 ID
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    if (GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
+        var gas = document.createElement('script');
+        gas.async = true;
+        gas.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+        document.head.appendChild(gas);
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+    }
+
+    function trackLead(context) {
+        try { gtag('event', 'generate_lead', { method: 'telegram', source: context || 'site', page: location.pathname }); } catch (e) {}
+        try {
+            var k = 'lead_clicks';
+            var all = JSON.parse(localStorage.getItem(k) || '{}');
+            all[context || 'site'] = (all[context || 'site'] || 0) + 1;
+            localStorage.setItem(k, JSON.stringify(all));
+        } catch (e) {}
+    }
+
+    function telegramHref(context, extra) {
+        var page = location.pathname.split('/').pop() || 'index.html';
+        var msg = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' +
+            'از صفحه: ' + page +
+            (extra ? '\n' + extra : '') +
+            '\n\nلطفاً کوتاه بنویسید: چه سایتی میخواهید و هدف پروژه چیست؟';
+        return TELEGRAM_URL + '?text=' + encodeURIComponent(msg);
+    }
+
+    function upgradeOne(a, context) {
+        if (a.dataset.tgReady) return;
+        a.dataset.tgReady = '1';
+        var ctx = context || a.getAttribute('data-telegram') || 'telegram-link';
+        a.setAttribute('data-telegram', ctx);
+        a.href = telegramHref(ctx);
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.addEventListener('click', function () { trackLead(ctx); });
+    }
+
+    function upgradeTelegramLinks() {
+        document.querySelectorAll('a[data-telegram]').forEach(function (a) { upgradeOne(a); });
+        document.querySelectorAll('a[href="' + TELEGRAM_URL + '"]').forEach(function (a) { upgradeOne(a, 'telegram-link'); });
+    }
 
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.documentElement.classList.add('js');
@@ -18,18 +67,19 @@
     '<li class="nav-item"><details class="nav-dropdown"><summary>خدمات</summary><div class="mega-menu">' +
     '<div class="mega-menu-header"><h2>خدمات طراحی سایت</h2><p>راهکارهایی برای حضور در فضای دیجیتال</p></div>' +
     '<div class="mega-menu-grid">' +
-    '<a href="services.html#company" class="mega-menu-item">' + icon('<path d="M4 20V6l8-3 8 3v14M9 20v-5h6v5M8 9h2M14 9h2M8 12h2M14 12h2"/>') + '<span><strong>طراحی سایت شرکتی</strong><small>معرفی کسب و کار شما</small></span></a>' +
-    '<a href="services.html#shop" class="mega-menu-item">' + icon('<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h10L20 8H6.5"/>') + '<span><strong>طراحی سایت فروشگاهی</strong><small>راه‌اندازی فروشگاه اینترنتی</small></span></a>' +
-    '<a href="services.html#personal" class="mega-menu-item">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>') + '<span><strong>طراحی سایت شخصی</strong><small>ساخت وب‌سایت معرفی و رزومه</small></span></a>' +
-    '<a href="services.html#support" class="mega-menu-item">' + icon('<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>') + '<span><strong>پشتیبانی سایت</strong><small>بهبود سرعت سایت</small></span></a>' +
+    '<a href="service-company.html" class="mega-menu-item">' + icon('<path d="M4 20V6l8-3 8 3v14M9 20v-5h6v5M8 9h2M14 9h2M8 12h2M14 12h2"/>') + '<span><strong>طراحی سایت شرکتی</strong><small>معرفی کسب و کار شما</small></span></a>' +
+    '<a href="service-shop.html" class="mega-menu-item">' + icon('<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h10L20 8H6.5"/>') + '<span><strong>طراحی سایت فروشگاهی</strong><small>راه‌اندازی فروشگاه اینترنتی</small></span></a>' +
+    '<a href="service-personal.html" class="mega-menu-item">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>') + '<span><strong>طراحی سایت شخصی</strong><small>ساخت وب‌سایت معرفی و رزومه</small></span></a>' +
+    '<a href="service-support.html" class="mega-menu-item">' + icon('<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>') + '<span><strong>پشتیبانی سایت</strong><small>بهبود سرعت سایت</small></span></a>' +
     '</div><div class="mega-menu-footer"><a href="services.html">مشاهده تمام خدمات</a></div></div></details></li>' +
     '<li><a href="about.html">درباره من</a></li>' +
     '<li><a href="portfolio.html">نمونه کارها</a></li>' +
     '<li><a href="experience.html">تجربیات</a></li>' +
     '<li><a href="blog.html">وبلاگ</a></li>' +
     '<li><a href="contact.html">تماس</a></li>' +
+    '<li><a href="ticket.html">ارسال تیکت</a></li>' +
     '</ul></nav>' +
-    '<a href="contact.html" class="header-cta">درخواست مشاوره</a>' +
+    '<a href="' + TELEGRAM_URL + '" data-telegram="header" class="header-cta">مشاوره رایگان</a>' +
     '</div></header>';
 
     var footerHTML =
@@ -38,7 +88,7 @@
     '<ul class="footer-links">' +
     '<li><a href="index.html">خانه</a></li><li><a href="about.html">درباره من</a></li>' +
     '<li><a href="services.html">خدمات</a></li><li><a href="portfolio.html">نمونه کارها</a></li>' +
-    '<li><a href="services.html#support">پشتیبانی</a></li><li><a href="ticket.html">ارسال تیکت</a></li>' +
+    '<li><a href="service-support.html">پشتیبانی</a></li><li><a href="ticket.html">ارسال تیکت</a></li>' +
     '<li><a href="experience.html">تجربیات</a></li><li><a href="blog.html">وبلاگ</a></li>' +
     '<li><a href="contact.html">تماس</a></li></ul>' +
     '</div><div class="container"><p class="copyright">© محمد حسین صیدی، طراح سایت</p></div></footer>';
@@ -49,6 +99,7 @@
     }
     mount('site-header', headerHTML);
     mount('site-footer', footerHTML);
+    upgradeTelegramLinks();
 
     /* لینک صفحه فعلی */
     var current = location.pathname.split('/').pop() || 'index.html';
@@ -108,43 +159,81 @@
     /* ---------- ظاهر شدن بخش‌ها هنگام اسکرول ---------- */
     var items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && !reduce) {
+        // فقط وقتی مشاهدهگر آماده است مخفی کردن را aktive میکنیم
+        document.documentElement.classList.add('reveal-ready');
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
                 if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
             });
         }, { threshold: 0.12 });
         items.forEach(function (el) { io.observe(el); });
+        // اگر به هر دلیلی مشاهدهگر اجرا نشد، محتوا نباید پنهان بماند
+        setTimeout(function () {
+            items.forEach(function (el) { el.classList.add('in'); });
+        }, 2500);
     } else {
         items.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- فرم تماس: باز کردن ایمیل آماده ---------- */
+    /* ---------- ارسال پیام: تلگرام (روش اصلی) + ایمیل (جایگزین) ---------- */
+    function showNote(id, text, linkHref, linkLabel) {
+        var note = document.getElementById(id);
+        if (!note) return;
+        note.textContent = '';
+        note.appendChild(document.createTextNode(text + ' '));
+        if (linkHref) {
+            var a = document.createElement('a');
+            a.href = linkHref;
+            a.textContent = linkLabel || 'باز کردن چت تلگرام';
+            note.appendChild(a);
+        }
+        note.hidden = false;
+    }
+
+    function openTelegram(text, context) {
+        trackLead(context || 'form');
+        var full = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' + text;
+        var url = TELEGRAM_URL + '?text=' + encodeURIComponent(full);
+        /* لینک موقت با target=_blank: فقط تب جدید باز میشود، تب سایت ثابت میماند */
+        var link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    /* ---------- فرم تماس ---------- */
     var form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             var f = new FormData(form);
-            var body = 'نام: ' + f.get('name') + '\nراه تماس: ' + f.get('contact') + '\nنوع پروژه: ' + f.get('service') + '\n\n' + f.get('message');
-            location.href = 'mailto:' + CONTACT_EMAIL +
-                '?subject=' + encodeURIComponent('درخواست پروژه از ' + f.get('name')) +
-                '&body=' + encodeURIComponent(body);
+            var subject = 'درخواست پروژه از ' + f.get('name');
+            var body = 'نام: ' + f.get('name') + '\nراه تماس: ' + f.get('contact') +
+                       '\nنوع پروژه: ' + f.get('service') + '\n\n' + f.get('message');
+            openTelegram(subject + '\n\n' + body, 'contact-form');
+            showNote('contact-note', 'پیامت آماده شد و مستقیم در چت تلگرام محمد حسین باز شد؛ حتماً بفرست. اگر باز نشد،', TELEGRAM_URL);
         });
     }
 
-    /* ---------- فرم پشتیبانی: باز کردن ایمیل آماده ---------- */
+    /* ---------- فرم پشتیبانی (در صورتی که در صفحهای استفاده شد) ---------- */
     var sform = document.getElementById('support-form');
     if (sform) {
         sform.addEventListener('submit', function (e) {
             e.preventDefault();
             var f = new FormData(sform);
-            var body = 'نام: ' + f.get('name') + '\nراه تماس: ' + f.get('contact') + '\nآدرس سایت: ' + f.get('site') + '\nنوع مشکل: ' + f.get('issue') + '\n\n' + f.get('message');
-            location.href = 'mailto:' + CONTACT_EMAIL +
-                '?subject=' + encodeURIComponent('درخواست پشتیبانی: ' + f.get('site')) +
-                '&body=' + encodeURIComponent(body);
+            var subject = 'درخواست پشتیبانی: ' + f.get('site');
+            var body = 'نام: ' + f.get('name') + '\nراه تماس: ' + f.get('contact') +
+                       '\nآدرس سایت: ' + f.get('site') + '\nنوع مشکل: ' + f.get('issue') +
+                       '\n\n' + f.get('message');
+            openTelegram(subject + '\n\n' + body, 'support-form');
+            showNote('support-note', 'پیامت آماده شد و مستقیم در چت تلگرام محمد حسین باز شد؛ حتماً بفرست. اگر باز نشد،', TELEGRAM_URL);
         });
     }
 
-    /* ---------- تیکت پشتیبانی: ذخیره در مرورگر + ایمیل آماده ---------- */
+    /* ---------- تیکت پشتیبانی: پیشنویس محلی + ارسال واقعی از طریق تلگرام ---------- */
     var tform = document.getElementById('ticket-form');
     var tlist = document.getElementById('ticket-list');
     if (tform && tlist) {
@@ -169,7 +258,7 @@
             var all = loadTickets();
             tlist.textContent = '';
             if (!all.length) {
-                tlist.appendChild(makeEl('li', 'ticket-empty', 'هنوز تیکتی نفرستادی.'));
+                tlist.appendChild(makeEl('li', 'ticket-empty', 'هنوز پیشنویسی نساختی.'));
                 return;
             }
             all.forEach(function (t, idx) {
@@ -195,7 +284,12 @@
         tform.addEventListener('submit', function (e) {
             e.preventDefault();
             var f = new FormData(tform);
-            var code = 'T-' + Date.now().toString(36).toUpperCase().slice(-6);
+            var code = 'P-' + Date.now().toString(36).toUpperCase().slice(-6);
+            var body = 'کد پیشنویس: ' + code + '\nنام: ' + f.get('name') +
+                '\nراه تماس: ' + f.get('contact') + '\nآدرس سایت: ' + f.get('site') +
+                '\nاولویت: ' + f.get('priority') + '\n\n' + f.get('message');
+            var subject = 'درخواست پشتیبانی ' + code + ': ' + f.get('subject');
+
             var all = loadTickets();
             all.unshift({
                 code: code,
@@ -205,17 +299,12 @@
             });
             saveTickets(all);
             renderTickets();
-
-            var note = document.getElementById('ticket-note');
-            note.textContent = 'تیکتت ثبت شد. کد پیگیری: ' + code + ' . حالا ایمیل آماده باز میشه؛ حتماً توش دکمه‌ی ارسال رو بزن.';
-            note.hidden = false;
-
-            var body = 'کد تیکت: ' + code + '\nنام: ' + f.get('name') + '\nراه تماس: ' + f.get('contact') +
-                '\nآدرس سایت: ' + f.get('site') + '\nاولویت: ' + f.get('priority') + '\n\n' + f.get('message');
             tform.reset();
-            location.href = 'mailto:' + CONTACT_EMAIL +
-                '?subject=' + encodeURIComponent('تیکت ' + code + ': ' + f.get('subject')) +
-                '&body=' + encodeURIComponent(body);
+
+            openTelegram(subject + '\n\n' + body, 'ticket-form');
+            showNote('ticket-note',
+                'پیشنویس ساخته شد (کد ' + code + '). این کد فقط تو این مرورگر ذخیره شده؛ پیام مستقیم در چت تلگرام محمد حسین باز شد، حتماً ارسالش کن تا برسم. اگر باز نشد،',
+                TELEGRAM_URL);
         });
     }
 
