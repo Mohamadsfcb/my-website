@@ -24,10 +24,17 @@
         </div>
     </section>
 
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>HTML</span><span>CSS</span><span>WordPress</span><span>Elementor</span><span>Figma</span><span>UI</span><span>UX</span><span>JavaScript</span>
+                <span>HTML</span><span>CSS</span><span>WordPress</span><span>Elementor</span><span>Figma</span><span>UI</span><span>UX</span><span>JavaScript</span>
+            </div>
+        </div>
+
     <section class="section alt"><div class="container">
         <h2 class="section-title">چرا من؟</h2>
         <div class="card-grid grid-3">
-            <div class="card reveal"><strong>۳ سال کار عملی</strong><p>تجربه ساخت سایت با وردپرس، المنتور و کدنویسی.</p></div>
+            <div class="card reveal"><strong>۳ سال تجربه</strong><p>تجربه ساخت سایت با وردپرس، المنتور و کدنویسی.</p></div>
             <div class="card reveal"><strong>طرح قبل از اجرا</strong><p>اول طرح رو میبینی و تأیید میکنی، بعد ساخت شروع میشود.</p></div>
             <div class="card reveal"><strong>پشتیبانی بعد از تحویل</strong><p>اگر مشکلی پیش آمد یا تغییری خواستی، کنارت هستم.</p></div>
         </div>
