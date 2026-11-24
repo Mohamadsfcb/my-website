@@ -3,6 +3,37 @@
     var TELEGRAM_USER = 'mohamadhossineseyedi';
     var TELEGRAM_URL = 'https://t.me/mohamadhossineseyedi';
 
+    /* منبع ورودی کاربر: لینکهای UTM رو تو پیام تلگرام هم میفرستم */
+    function getQuery(name) {
+        try { return new URLSearchParams(location.search).get(name) || ''; }
+        catch (e) { return ''; }
+    }
+
+    function rememberSource() {
+        var src = getQuery('utm_source') || getQuery('source');
+        if (!src) return;
+        try {
+            sessionStorage.setItem('lead_source', src);
+            localStorage.setItem('lead_source_last', src);
+        } catch (e) {}
+    }
+
+    function getSource() {
+        var src = getQuery('utm_source') || getQuery('source');
+        if (!src) {
+            try { src = sessionStorage.getItem('lead_source') || localStorage.getItem('lead_source_last') || ''; }
+            catch (e) {}
+        }
+        if (src) return src;
+        try { if (document.referrer) return new URL(document.referrer).hostname; } catch (e) {}
+        return 'مستقیم / گوگل';
+    }
+
+    function sourceLine() {
+        var camp = getQuery('utm_campaign') || getQuery('campaign') || '';
+        return 'منبع: ' + getSource() + (camp ? ' | کمپین: ' + camp : '');
+    }
+    rememberSource();
 
     function trackLead(context) {
         try {
@@ -10,15 +41,18 @@
             var all = JSON.parse(localStorage.getItem(k) || '{}');
             all[context || 'site'] = (all[context || 'site'] || 0) + 1;
             localStorage.setItem(k, JSON.stringify(all));
+            var sk = 'lead_sources';
+            var sources = JSON.parse(localStorage.getItem(sk) || '{}');
+            var src = getSource();
+            sources[src] = (sources[src] || 0) + 1;
+            localStorage.setItem(sk, JSON.stringify(sources));
         } catch (e) {}
     }
 
     function telegramHref(context, extra) {
         var page = location.pathname.split('/').pop() || 'index.html';
-        var ref = '';
-        try { if (document.referrer) { ref = new URL(document.referrer).hostname; } } catch (e) {}
         var msg = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' +
-            'از صفحه: ' + page + '\nمنبع: ' + (ref || 'مستقیم / گوگل') +
+            'از صفحه: ' + page + '\n' + sourceLine() +
             (extra ? '\n' + extra : '') +
             '\n\nلطفاً کوتاه بنویسید: چه سایتی میخواهید و هدف پروژه چیست؟';
         return TELEGRAM_URL + '?text=' + encodeURIComponent(msg);
@@ -148,7 +182,7 @@
     /* ---------- ظاهر شدن بخشها هنگام اسکرول ---------- */
     var items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && !reduce) {
-        // فقط وقتی مشاهدهگر آمادهه مخفی کردن رو aktive می کنیم
+        // فقط وقتی مشاهدهگر آماده است، مخفی کردن رو فعال میکنیم
         document.documentElement.classList.add('reveal-ready');
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
@@ -181,7 +215,7 @@
 
     function openTelegram(text, context) {
         trackLead(context || 'form');
-        var full = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' + text;
+        var full = 'گیرنده: محمد حسین صیدی (@' + TELEGRAM_USER + ')\n\n' + sourceLine() + '\n\n' + text;
         var url = TELEGRAM_URL + '?text=' + encodeURIComponent(full);
         /* لینک موقت با target=_blank: فقط تب جدید باز میشه، تب سایت ثابت میماند */
         var link = document.createElement('a');
@@ -255,7 +289,7 @@
                 li.appendChild(makeEl('span', 'ticket-code', t.code));
                 li.appendChild(makeEl('strong', '', t.subject));
                 var date = new Date(t.time).toLocaleDateString('fa-IR');
-                li.appendChild(makeEl('small', '', date + ' · اولویت ' + t.priority));
+                li.appendChild(makeEl('small', '', date + ' · ' + t.priority));
                 var del = makeEl('button', 'ticket-del', 'حذف از این مرورگر');
                 del.type = 'button';
                 del.addEventListener('click', function () {
@@ -276,8 +310,8 @@
             var code = 'P-' + Date.now().toString(36).toUpperCase().slice(-6);
             var body = 'کد پیش نویس: ' + code + '\nنام: ' + f.get('name') +
                 '\nراه تماس: ' + f.get('contact') + '\nآدرس سایت: ' + f.get('site') +
-                '\nاولویت: ' + f.get('priority') + '\n\n' + f.get('message');
-            var subject = 'درخواست پشتیبانی ' + code + ': ' + f.get('subject');
+                '\nدغدغه اصلی: ' + f.get('priority') + '\n\n' + f.get('message');
+            var subject = 'درخواست بررسی رایگان ' + code + ': ' + f.get('subject');
 
             var all = loadTickets();
             all.unshift({
@@ -292,7 +326,7 @@
 
             openTelegram(subject + '\n\n' + body, 'ticket-form');
             showNote('ticket-note',
-                'پیش نویس ساخته شد (کد ' + code + '). این کد فقط تو این مرورگر ذخیره شده؛ پیام مستقیم در چت تلگرام محمد حسین باز شد، حتماً ارسالش کن تا برسم. اگر باز نشد،',
+                'درخواستت ساخته شد (کد ' + code + '). تو همین مرورگر هم ذخیره میشه. پیام مستقیم تو چت تلگرام محمد حسین باز شد، حتماً بفرست تا برسم. اگر باز نشد،',
                 TELEGRAM_URL);
         });
     }
