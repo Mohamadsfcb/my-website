@@ -36,7 +36,7 @@
         <div class="card-grid grid-3">
             <div class="card reveal"><strong>۳ سال تجربه</strong><p>تجربه ساخت سایت با وردپرس، المنتور و کد نویسی.</p></div>
             <div class="card reveal"><strong>طرح قبل از اجرا</strong><p>اول طرح رو میبینی و تأیید می کنی، بعد ساخت شروع میشه.</p></div>
-            <div class="card reveal"><strong>پشتیبانی بعد از تحویل</strong><p>اگر مشکلی پیش آمد یا تغییری خواستی، کنارت هستم.</p></div>
+            <div class="card reveal"><strong>پشتیبانی بعد از تحویل</strong><p>اگر مشکلی پیش آمد یا تغییری خوهی، کنارت هستم.</p></div>
         </div>
     </div></section>
 

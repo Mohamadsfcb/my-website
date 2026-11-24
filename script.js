@@ -1,5 +1,5 @@
 (function () {
-    // ایمیل خودت را اینجا بنویس تا فرم تماس به آن ارسال شود
+    // ایمیل خودت رو اینجا بنویس تا فرم تماس به اون ارسال شه
     var TELEGRAM_USER = 'mohamadhossineseyedi';
     var TELEGRAM_URL = 'https://t.me/mohamadhossineseyedi';
 
@@ -43,7 +43,7 @@
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.documentElement.classList.add('js');
 
-    /* ---------- هدر و فوتر مشترک همه صفحه‌ها ---------- */
+    /* ---------- هدر و فوتر مشترک همه صفحه ها ---------- */
     var icon = function (d) {
         return '<span class="menu-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + d + '</svg></span>';
     };
@@ -57,8 +57,8 @@
     '<div class="mega-menu-header"><h2>خدمات طراحی سایت</h2><p>راهکارهایی برای حضور در فضای دیجیتال</p></div>' +
     '<div class="mega-menu-grid">' +
     '<a href="service-company.html" class="mega-menu-item">' + icon('<path d="M4 20V6l8-3 8 3v14M9 20v-5h6v5M8 9h2M14 9h2M8 12h2M14 12h2"/>') + '<span><strong>طراحی سایت شرکتی</strong><small>معرفی کسب و کار شما</small></span></a>' +
-    '<a href="service-shop.html" class="mega-menu-item">' + icon('<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h10L20 8H6.5"/>') + '<span><strong>طراحی سایت فروشگاهی</strong><small>راه‌اندازی فروشگاه اینترنتی</small></span></a>' +
-    '<a href="service-personal.html" class="mega-menu-item">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>') + '<span><strong>طراحی سایت شخصی</strong><small>ساخت وب‌سایت معرفی و رزومه</small></span></a>' +
+    '<a href="service-shop.html" class="mega-menu-item">' + icon('<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.5 11h10L20 8H6.5"/>') + '<span><strong>طراحی سایت فروشگاهی</strong><small>راه اندازی فروشگاه اینترنتی</small></span></a>' +
+    '<a href="service-personal.html" class="mega-menu-item">' + icon('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>') + '<span><strong>طراحی سایت شخصی</strong><small>ساخت وبسایت معرفی و رزومه</small></span></a>' +
     '<a href="service-support.html" class="mega-menu-item">' + icon('<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>') + '<span><strong>پشتیبانی سایت</strong><small>بهبود سرعت سایت</small></span></a>' +
     '</div><div class="mega-menu-footer"><a href="services.html">مشاهده تمام خدمات</a></div></div></details></li>' +
     '<li><a href="about.html">درباره من</a></li>' +
@@ -110,7 +110,7 @@
         });
     }
 
-    /* ---------- کلمه‌های متحرک تایپی در صفحه اصلی ---------- */
+    /* ---------- کلمههای متحرک تایپی در صفحه اصلی ---------- */
     var rot = document.querySelector('.rotator');
     if (rot && !reduce) {
         var words = rot.getAttribute('data-words').split('|');
@@ -128,7 +128,7 @@
         })();
     }
 
-    /* ---------- چرخش سه‌بعدی پنجره مرورگر با حرکت ماوس ---------- */
+    /* ---------- چرخش سهبعدی پنجره مرورگر با حرکت ماوس ---------- */
     var vis = document.querySelector('.hero-visual');
     if (vis && !reduce && window.matchMedia('(hover: hover)').matches) {
         var hero = document.querySelector('.hero');
@@ -145,10 +145,10 @@
         });
     }
 
-    /* ---------- ظاهر شدن بخش‌ها هنگام اسکرول ---------- */
+    /* ---------- ظاهر شدن بخشها هنگام اسکرول ---------- */
     var items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && !reduce) {
-        // فقط وقتی مشاهدهگر آماده است مخفی کردن را aktive می کنیم
+        // فقط وقتی مشاهدهگر آمادهه مخفی کردن رو aktive می کنیم
         document.documentElement.classList.add('reveal-ready');
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
@@ -234,7 +234,7 @@
         };
         var saveTickets = function (arr) {
             try { localStorage.setItem(TICKET_KEY, JSON.stringify(arr)); }
-            catch (err) { /* اگه مرورگر اجازه نداد، فقط ذخیره نمی‌شود */ }
+            catch (err) { /* اگه مرورگر اجازه نداد، فقط ذخیره نمیشه */ }
         };
         var makeEl = function (tag, cls, text) {
             var el = document.createElement(tag);
@@ -297,7 +297,7 @@
         });
     }
 
-    /* ---------- پرسش‌های رایج به‌صورت کشو: با باز شدن یکی، بقیه بسته می‌شوند ---------- */
+    /* ---------- پرسش های رایج بهصورت کشو: با باز شدن یکی، بقیه بسته میشوند ---------- */
     document.querySelectorAll('.faq-q').forEach(function (btn) {
         btn.addEventListener('click', function () {
             var item = btn.closest('.faq-item');
