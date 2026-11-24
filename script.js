@@ -289,7 +289,7 @@
                 li.appendChild(makeEl('span', 'ticket-code', t.code));
                 li.appendChild(makeEl('strong', '', t.subject));
                 var date = new Date(t.time).toLocaleDateString('fa-IR');
-                li.appendChild(makeEl('small', '', date + ' · ' + t.priority));
+                li.appendChild(makeEl('small', '', date + ' · اولویت ' + t.priority));
                 var del = makeEl('button', 'ticket-del', 'حذف از این مرورگر');
                 del.type = 'button';
                 del.addEventListener('click', function () {
@@ -310,8 +310,8 @@
             var code = 'P-' + Date.now().toString(36).toUpperCase().slice(-6);
             var body = 'کد پیش نویس: ' + code + '\nنام: ' + f.get('name') +
                 '\nراه تماس: ' + f.get('contact') + '\nآدرس سایت: ' + f.get('site') +
-                '\nدغدغه اصلی: ' + f.get('priority') + '\n\n' + f.get('message');
-            var subject = 'درخواست بررسی رایگان ' + code + ': ' + f.get('subject');
+                '\nاولویت: ' + f.get('priority') + '\n\n' + f.get('message');
+            var subject = 'درخواست پشتیبانی ' + code + ': ' + f.get('subject');
 
             var all = loadTickets();
             all.unshift({
@@ -326,7 +326,7 @@
 
             openTelegram(subject + '\n\n' + body, 'ticket-form');
             showNote('ticket-note',
-                'درخواستت ساخته شد (کد ' + code + '). تو همین مرورگر هم ذخیره میشه. پیام مستقیم تو چت تلگرام محمد حسین باز شد، حتماً بفرست تا برسم. اگر باز نشد،',
+                'پیش نویس ساخته شد (کد ' + code + '). این کد فقط تو این مرورگر ذخیره شده؛ پیام مستقیم در چت تلگرام محمد حسین باز شد، حتماً ارسالش کن تا برسم. اگر باز نشد،',
                 TELEGRAM_URL);
         });
     }

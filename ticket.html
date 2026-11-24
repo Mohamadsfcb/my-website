@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بررسی رایگان سایت | محمد حسین صیدی</title>
-    <meta name="description" content="آدرس سایتت رو بده، ۳ تغییری که سایتت رو سریعتر و گیراتر میکنه برات مینویسم. رایگان و بدون تعهد.">
+    <title>ارسال تیکت پشتیبانی | محمد حسین صیدی</title>
+    <meta name="description" content="درخواست پشتیبانی سایت رو با اولویت و توضیح بنویس تا پیامت مستقیم در تلگرام ارسال شه.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="محمد حسین صیدی">
     <meta name="theme-color" content="#0F1330">
     <link rel="canonical" href="https://mohamadsfcb.github.io/my-website/ticket.html">
-    <meta property="og:title" content="بررسی رایگان سایت | محمد حسین صیدی">
-    <meta property="og:description" content="آدرس سایتت رو بده، ۳ تغییری که سایتت رو سریعتر و گیراتر میکنه برات مینویسم. رایگان و بدون تعهد.">
+    <meta property="og:title" content="ارسال تیکت پشتیبانی | محمد حسین صیدی">
+    <meta property="og:description" content="درخواست پشتیبانی سایت رو با اولویت و توضیح بنویس تا پیامت مستقیم در تلگرام ارسال شه.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fa_IR">
     <link rel="preload" href="assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,59 +21,34 @@
 <body>
     <div id="site-header"></div>
     <main>
-        <section class="page-hero"><div class="container">
-            <h1>بررسی رایگان سایت</h1>
-            <p>آدرس سایتت رو بده، من یه نگاه میاندازم و ۳ تغییری که سایتت رو سریعتر و گیراتر میکنه برات مینویسم. رایگان، بدون تعهد.</p>
-            <p><a href="#audit-form" class="services-cta">شروع بررسی</a></p>
-        </div></section>
+        <section class="page-hero"><div class="container"><h1>ارسال تیکت</h1><p>مشکلت رو بنویس تا یه پیش نویس تو همین مرورگر بسازم و پیامت مستقیم برسه به تلگرام.</p></div></section>
 
-        <section class="section"><div class="container">
-            <h2 class="section-title">چطوری کار میکنه؟</h2>
-            <ol class="steps">
-                <li class="reveal"><b>۱</b><strong>آدرس میدی</strong><p>اسم و آدرس سایتت رو مینویسی؛ اگه سایتی نداری هم بگو قراره چی بسازی.</p></li>
-                <li class="reveal"><b>۲</b><strong>من نگاه میکنم</strong><p>سرعت، نمایش رو موبایل، عنوان و توضیح گوگل و راه تماس رو چک میکنم.</p></li>
-                <li class="reveal"><b>۳</b><strong>سه تا پیشنهاد میفرستم</strong><p>تو تلگرام، ساده و کوتاه، میگم کدوم سه تا تغییر بیشتر به دردت میخوره.</p></li>
-            </ol>
-        </div></section>
+        <section class="section">
+            <div class="container contact-page">
+                <div>
+                    <h2 class="section-title reveal">پیش نویسهای من</h2>
+                    <p class="section-text">پیش نویسهایی که تو این مرورگر ساختی اینجا میمانند تا کدشون رو گم نکنی. اینها تیکت سروری نیستند؛ جواب رو فقط وقتی پیام تلگرام ارسال شد میگیری.</p>
+                    <ul id="ticket-list" class="ticket-list" aria-live="polite"></ul>
+                </div>
 
-        <section class="section alt"><div class="container">
-            <h2 class="section-title">چه چیزایی رو چک میکنم؟</h2>
-            <div class="card-grid grid-2">
-                <div class="card reveal"><strong>سرعت لود</strong><p>میبینم کجای سایت کند میکنه و سادهترین کاری که میشه کرد رو میگم.</p></div>
-                <div class="card reveal"><strong>نمایش رو موبایل</strong><p>چک میکنم رو گوشی خوب دیده میشه یا نه؛ بیشتر بازدیدها از موبایل میان.</p></div>
-                <div class="card reveal"><strong>عنوان و توضیح گوگل</strong><p>اگر عنوان یا توضیح صفحه گیجکننده باشه، میگم چطور واضحترش کنی.</p></div>
-                <div class="card reveal"><strong>راه تماس</strong><p>بزرگترین مشکل خیلی از سایتها اینه که طرف نمیدونه چطور باهات تماس بگیره.</p></div>
+                <form id="ticket-form" class="form">
+                    <p id="ticket-note" class="ticket-note" role="status" hidden></p>
+                    <label>اسمت<input type="text" name="name" required></label>
+                    <label>ایمیل یا شمارهات<input type="text" name="contact" required></label>
+                    <label>آدرس سایت<input type="text" name="site" placeholder="example.ir"></label>
+                    <label>اولویت
+                        <select name="priority">
+                            <option>کم</option>
+                            <option selected>متوسط</option>
+                            <option>فوری</option>
+                        </select>
+                    </label>
+                    <label>موضوع تیکت<input type="text" name="subject" required></label>
+                    <label>توضیح مشکل<textarea name="message" rows="5" required></textarea></label>
+                    <button type="submit" class="services-cta">آماده و ارسال در تلگرام</button>
+                </form>
             </div>
-        </div></section>
-
-        <section class="section" id="audit-form"><div class="container contact-page">
-            <form id="ticket-form" class="form">
-                <h2 class="section-title">آدرس سایتت رو بده</h2>
-                <p class="section-text">پیامت مستقیم تو تلگرام من باز میشه. فقط کافیه بفرستیش؛ من یه نگاه میاندازم.</p>
-                <p id="ticket-note" class="ticket-note" role="status" hidden></p>
-                <label>اسمت<input type="text" name="name" required></label>
-                <label>تلگرام یا ایمیلت<input type="text" name="contact" placeholder="@mohamadhossineseyedi" required></label>
-                <label>آدرس سایتت<input type="text" name="site" placeholder="example.ir"></label>
-                <label>چیزی که بیشتر اذیتت میکنه
-                    <select name="priority">
-                        <option>سرعت سایت</option>
-                        <option selected>نمایش رو موبایل</option>
-                        <option>پیدا شدن تو گوگل</option>
-                        <option>ظاهر سایت</option>
-                        <option>چیز دیگه</option>
-                    </select>
-                </label>
-                <label>اسم کسب و کار یا پروژه<input type="text" name="subject" required></label>
-                <label>درباره سایتت بگو (اختیاری)<textarea name="message" rows="4" placeholder="مثلاً: خیلی دوست دارم مشتری بیشتری بگیرم"></textarea></label>
-                <button type="submit" class="services-cta">بررسی رایگان رو بگیر</button>
-                <p class="section-text">۳ سال تجربه · طرح قبل از اجرا · پشتیبانی بعد از تحویل</p>
-            </form>
-            <div>
-                <h2 class="section-title">درخواستهای من</h2>
-                <p class="section-text">درخواستهایی که تو این مرورگر ساختی اینجا میمانند تا کدشون رو گم نکنی. اینها تیکت سروری نیستند؛ جواب رو وقتی پیام تلگرام ارسال شد میگیری.</p>
-                <ul id="ticket-list" class="ticket-list" aria-live="polite"></ul>
-            </div>
-        </div></section>
+        </section>
     </main>
     <div id="site-footer"></div>
 </body>
