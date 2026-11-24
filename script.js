@@ -114,7 +114,7 @@
     '<li><a href="service-support.html">پشتیبانی</a></li><li><a href="ticket.html">ارسال تیکت</a></li>' +
     '<li><a href="experience.html">تجربیات</a></li><li><a href="blog.html">وبلاگ</a></li>' +
     '<li><a href="contact.html">تماس</a></li></ul>' +
-    '</div><div class="container"><p class="copyright">© محمد حسین صیدی، طراح سایت</p></div></footer>';
+    '</div><div class="container"><p class="copyright">© 1405 تمامی حقوق برای محمد حسین صیدی محفوظ است</p></div></footer>';
 
     function mount(id, html) {
         var el = document.getElementById(id);

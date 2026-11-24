@@ -8,7 +8,7 @@
         <li><a href="<?php echo esc_url( mhs_page_url( 'support' ) ); ?>">پشتیبانی</a></li>
         <li><a href="<?php echo esc_url( mhs_page_url( 'contact' ) ); ?>">تماس</a></li>
     </ul>
-</div><div class="container"><p class="copyright">© <?php echo esc_html( date( 'Y' ) ); ?> محمد حسین صیدی، طراح سایت</p></div></footer>
+</div><div class="container"><p class="copyright">© 1405 تمامی حقوق برای محمد حسین صیدی محفوظ است</p></div></footer>
 <?php wp_footer(); ?>
 </body>
 </html>
