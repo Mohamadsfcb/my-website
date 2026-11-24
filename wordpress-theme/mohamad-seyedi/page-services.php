@@ -9,7 +9,7 @@ get_header(); ?>
     </div></section>
     <section class="section"><div class="container service-blocks">
         <?php foreach ( array(
-            'personal' => array( 'طراحی سایت شخصی', 'سایت معرفی و رزومه، واکنشگرا و سئوشده.' ),
+            'personal' => array( 'طراحی سایت شخصی', 'سایت معرفی و رزومه، واکنشگرا و سئو شده.' ),
             'company'  => array( 'طراحی سایت شرکتی', 'سایتی مرتب و قابل اعتماد برای کسب و کار.' ),
             'shop'     => array( 'طراحی سایت فروشگاهی', 'صفحه محصول، سبد خرید و آموزش مدیریت.' ),
             'support'  => array( 'پشتیبانی سایت', 'رفع مشکل، بهبود سرعت و تغییرات کوچک.' ),
